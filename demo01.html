@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+</head>
+<body>
+	<h1>hello world</h1>
+	<script src="public/lib/requirejs/require.js"></script>
+	<!--总配置，积累常用的插件-->
+	<script src="public/js/requireConfig.js"></script> 
+	<script>
+		//尽量把有返回值的模块放到前面去
+		require(["jquery","base-m","jquery-base64","jquery-MD5","jquery-dateFormat","lazyload"], function($,baseM){
+			$(function(){
+				baseM.msg("hello wrold1111111");
+			})
+		});
+		require.config({
+			 "paths": {
+	            "m01": "public/js/m01",
+        	},
+		})
+		require(["m01"],function(m){
+			//alert(m.demo);
+		})
+		
+	</script>
+</body>
+</html>
